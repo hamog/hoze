@@ -1,0 +1,57 @@
+<div class="modal fade" id="createCategoryModal" style="" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document" style="min-width: 100vw; position: relative; bottom: 15vh">
+    <div class="modal-content">
+      <div class="modal-header">
+        <p class="modal-title font-weight-bolder">ثبت دسته بندی جدید</p>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="{{route("admin.category.store")}}" method="POST">
+          @csrf
+          <div class="row">
+            <div class="col-6">
+              <div class="form-group">
+                <label class="font-weight-bold">عنوان :</label><span class="text-danger">&starf;</span>
+                <input type="text" name="name" class="form-control" required>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-group">
+                <label class="font-weight-bold">نوع دسته بندی :</label><span class="text-danger">&starf;</span>
+                <select name="type" class="form-control" required>
+                  <option value="none">انتخاب</option>
+                  <option value="news">خبر</option>
+                  <option value="article">مقاله</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-group">
+                <label class="font-weight-bold">اسلاگ :</label><span class="text-danger">&starf;</span>
+                <input type="text" name="slug" class="form-control" required>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-group">
+                <label class="font-weight-bold">انتخاب وضعیت :</label><span class="text-danger">&starf;</span>
+                <select name="status" class="form-control" required>
+                  <option value="none">انتخاب</option>
+                  <option value="1">فعال</option>
+                  <option value="0">غیر فعال</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col d-flex justify-content-center">
+              <button type="button" class="btn btn-danger ml-2" data-dismiss="modal">بستن</button>
+              <button type="submit" class="btn btn-primary mr-2">ثبت</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

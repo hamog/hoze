@@ -18,10 +18,14 @@ class Slider extends Model
 		"status",
 	];
 
+  protected $appends = [
+    'image_url'
+  ];
+
   protected function imageUrl(): Attribute
   {
     return Attribute::make(
-      get: fn (string $value) => Storage::url($value)
+      get: fn () => Storage::url($this->attributes['image'])
     );
   }
 

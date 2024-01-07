@@ -31,7 +31,7 @@ class MenuController extends Controller
     $menuItems = $menuGroup->items()->ordered()->get();
     $models = MenuItem::MODELS;
     $categories = MenuItem::getAllCategories();
-    return view('admin.menu.index', compact(['menuItems', 'menuGroup', 'models', 'categories']));
+    return view('Admin.menu.index', compact(['menuItems', 'menuGroup', 'models', 'categories']));
   }
 
   public function store(MenuStoreRequest $request)
@@ -101,7 +101,7 @@ class MenuController extends Controller
     return redirect()->back();
   }
 
-  public function destroy(MenuItem $menuItem) 
+  public function destroy(MenuItem $menuItem)
   {
     $menuItem->delete();
     toastr()->success('منو مورد نظر با موفقیت حذف شد.');

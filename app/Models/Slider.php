@@ -25,7 +25,7 @@ class Slider extends Model
   protected function imageUrl(): Attribute
   {
     return Attribute::make(
-      get: fn () => Storage::url($this->attributes['image'])
+      get: fn () => $this->getImage()
     );
   }
 
@@ -33,9 +33,9 @@ class Slider extends Model
 	{
 		return app("customFunction")->gregorianToShamsi($this->attributes["created_at"]);
 	}
-	public function getImage()
-	{
-		return Storage::url($this->attributes['image']);
+	public function getImage(): string
+  {
+		return Storage::disk('public')->url($this->attributes['image']);
 	}
 	public function deleteImage()
 	{

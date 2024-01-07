@@ -1,7 +1,7 @@
 <tr>
   <td class="text-center">{{ $counter }}</td>
   <td class="text-center">
-    {{-- <img width="50" height="40" src="{{ $announcement->getImage() }}" style="border-radius: 50%"/> --}}
+     <img width="50" height="40" src="{{ $announcement->getImage() }}" style="border-radius: 50%"/>
   </td>
   <td class="text-center">{{ $announcement->user->name }}</td>
   <td class="text-center">{{ $announcement->id }}</td>

@@ -33,7 +33,7 @@ class Announcement extends Model
 
 		public function getImage()
 		{
-			return Storage::url($this->attributes["image"]);
+			return Storage::disk('public')->url($this->attributes["image"]);
 		}
 		public function deleteImage()
 		{

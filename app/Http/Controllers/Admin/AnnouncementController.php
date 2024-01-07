@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Builder;
 
 class AnnouncementController extends Controller
 {
-	public function index() 
+	public function index()
 	{
 		$userId = request("user_id") !== "all" ? request("user_id") : null;
 		$status = request("status") !== "all" ? request("status") : null;
@@ -40,7 +40,7 @@ class AnnouncementController extends Controller
 			->paginate(15)
 			->withQueryString()
 		;
-		
+
 		$announcementsCount = $announcements->total();
 		$users = User::select("id", "name", "phone_number")->get();
 
@@ -49,7 +49,7 @@ class AnnouncementController extends Controller
 
 	public function show(Announcement $announcement)
 	{
-		return view("admin.announcement.show", compact("announcement"));
+		return view("Admin.announcement.show", compact("announcement"));
 	}
 
 	public function create()
@@ -81,7 +81,7 @@ class AnnouncementController extends Controller
 		return view("Admin.announcement.edit", compact("announcement"));
 	}
 
-	public function update(AnnouncementUpdateRequest $request, Announcement $announcement) 
+	public function update(AnnouncementUpdateRequest $request, Announcement $announcement)
 	{
 		$inputs = [
 			"title" => $request->title,

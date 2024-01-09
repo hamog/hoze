@@ -51,7 +51,7 @@ class NewsContoller extends Controller
 			->paginate(15)
 			->withQueryString()
 		;
-		
+
 		$newsCount = $allNews->total();
 		$categories = Category::select("id", "name")->where("type", "news")->get();
 		$users = User::select("id", "name", "phone_number")->get();
@@ -61,7 +61,7 @@ class NewsContoller extends Controller
 
 	public function show(News $news)
 	{
-		return view("admin.news.show", compact("news"));
+		return view("Admin.news.show", compact("news"));
 	}
 
 	public function create()

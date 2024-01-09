@@ -31,7 +31,7 @@ class CategoryController extends Controller
 			->paginate(15)
 			->withQueryString()
 		;
-		
+
 		$categoriesCount = $categories->total();
 		return view("Admin.category.index", compact("categories", "categoriesCount"));
 	}
@@ -52,13 +52,14 @@ class CategoryController extends Controller
 
 	public function destroy(Category $category)
 	{
-		$exists = News::where("category_id", $category->id)->exists();
-		if ($exists) {
+		if ($category->news()->exists()) {
 			toastr()->error("از این دسته بندی خبری ثبت شده است و نمی توان آن را حذف کرد.");
 			return redirect()->back();
 		}
+
 		$category->delete();
 		toastr()->success("دسته بندی با موفقیت حذف شد.");
+
 		return redirect()->back();
 	}
 }

@@ -7,8 +7,8 @@
 		<meta content="Spruko Technologies Private Limited" name="author">
 		<meta name="keywords" content="admin dashboard, admin panel template, html admin template, dashboard html template, bootstrap 4 dashboard, template admin bootstrap 4, simple admin panel template, simple dashboard html template,  bootstrap admin panel, task dashboard, job dashboard, bootstrap admin panel, dashboards html, panel in html, bootstrap 4 dashboard"/>
 
-		<title>@yield('title')</title>
-    
+		<title>@yield('title', config('app.name'))</title>
+
 		@include("Admin.layouts.includes.styles")
 
 		@yield("styles")
@@ -18,7 +18,7 @@
 	<body class="app sidebar-mini">
 
 		<div id="global-loader" >
-			<img src="{{asset('../../assets/images/svgs/loader.svg')}}" alt="loader">
+			<img src="{{asset('assets/images/svgs/loader.svg')}}" alt="loader">
 		</div>
 
 		<div class="page">
@@ -47,6 +47,6 @@
 		@include("Admin.layouts.includes.scripts")
 
 		@yield("scripts")
-		
+
 	</body>
 </html>

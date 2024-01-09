@@ -36,7 +36,9 @@ $(document).ready(function () {
   $('.select2-show-search').select2({
       minimumResultsForSearch: ''
   });
-
+  $('.select2-tags').select2({
+    tags: true
+  });
 });
 
 function numberWithCommas(x) {

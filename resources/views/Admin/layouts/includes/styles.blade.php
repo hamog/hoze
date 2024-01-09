@@ -1,5 +1,5 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
-<link href="{{asset('assets/images/brand/favicon.ico')}}" type="image/x-icon" rel="icon"/>
+{{--<link href="{{asset('assets/images/brand/favicon.ico')}}" type="image/x-icon" rel="icon"/>--}}
 <link href="{{asset('assets/plugins/bootstrap/css/bootstrap.css')}}" rel="stylesheet" />
 <link href="{{asset('assets/css-rtl/style.css')}}" rel="stylesheet" />
 <link href="{{asset('assets/css-rtl/dark.css')}}" rel="stylesheet" />
@@ -15,8 +15,10 @@
 <link href="{{asset('assets/plugins/time-picker/jquery.timepicker.css')}}" rel="stylesheet" />
 <link href="{{asset('assets/plugins/jQuery-countdowntimer/jQuery.countdownTimer.css')}}" rel="stylesheet" />
 <link href="{{asset('assets/css-rtl/style-rtl.css')}}" rel="stylesheet" />
-<link href="{{asset('assets/PersianDateTimePicker-bs4/src/jquery.md.bootstrap.datetimepicker.style.css')}}"/>
 <link href="{{asset('dist/select2.min.css')}}" rel="stylesheet"/>
+<!-- PersianDateTimePicker css -->
+<link rel="stylesheet"
+      href="{{ asset('assets\PersianDateTimePicker-bs4/src/jquery.md.bootstrap.datetimepicker.style.css') }}"/>
 <link href="{{asset('assets/font/font.css')}}" rel="stylesheet"/>
 <style>
   .modal-backdrop{

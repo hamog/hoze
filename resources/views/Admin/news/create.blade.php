@@ -54,8 +54,8 @@
               <div class="form-group">
                 <label class="font-weight-bold">خبر ویژه :</label><span class="text-danger">&starf;</span>
                 <select name="featured" class="form-control" required>
-                  <option value="1">باشد</option>
                   <option value="0">نباشد</option>
+                  <option value="1">باشد</option>
                 </select>
               </div>
             </div>
@@ -63,9 +63,16 @@
           <div class="row">
             <div class="col-4">
               <div class="form-group">
-                <label for="published_date" class="font-weight-bold">تاریخ انتشار :</label>
-                <input class="form-control fc-datepicker" id="published_at" type="text" autocomplete="off"/>
-                <input name="published_date" id="published_date" type="hidden"/>
+                <label for="published_at_show" class="control-label">تاریخ انتشار</label> <span class="text-danger">&starf;</span>
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text">
+                      <i class="feather feather-calendar"></i>
+                    </div>
+                  </div>
+                  <input class="form-control fc-datepicker" id="published_at_show" placeholder="تاریخ پرداخت" type="text" autocomplete="off" value="{{ verta(old('published_at', today()->format('Y-m-d')))->format('Y-m-d') }}">
+                  <input name="published_at" id="published_at" type="hidden" value="{{ old('published_at', today()->format('Y-m-d')) }}">
+                </div>
               </div>
             </div>
             <div class="col-4">
@@ -85,7 +92,7 @@
             <div class="col-12">
               <div class="form-group">
                 <label class="font-weight-bold">انتخاب برچسب :</label>
-                <select class="form-control select2-multiple" name="tag[]" multiple="multiple">
+                <select class="form-control select2-tags" name="tag[]" multiple="multiple">
                   @foreach ($tags as $tag)
                     <option value="{{ $tag->name }}">{{ $tag->name }}</option>
                   @endforeach
@@ -118,23 +125,15 @@
 
 @section('scripts')
   <script>
-$(document).ready(function() {
-    $('.select2-multiple').select2({
-      tags: true
-    });
-    $('.select2').select2();
-
-  });
-
     $('#published_at').MdPersianDateTimePicker({
-      targetDateSelector: '#published_date',        
-      targetTextSelector: '#published_at',
-      englishNumber: false,        
+      targetDateSelector: '#published_at',
+      targetTextSelector: '#published_at_show',
+      englishNumber: false,
       toDate:true,
-      enableTimePicker: false,        
+      enableTimePicker: false,
       dateFormat: 'yyyy-MM-dd',
-      textFormat: 'yyyy-MM-dd',        
+      textFormat: 'yyyy-MM-dd',
       groupId: 'rangeSelector1',
     });
-  </script> 
+  </script>
 @endsection

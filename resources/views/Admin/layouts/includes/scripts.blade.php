@@ -10,11 +10,11 @@
 <script src="{{asset('assets/plugins/p-scrollbar/p-scroll1.js')}}"></script>
 <script src="{{asset('assets/plugins/sidebar/sidebar.js')}}"></script>
 <script src="{{ asset('assets/plugins/select2/select2.full.min.js') }}"></script>
+<script src="{{ asset('assets/PersianDateTimePicker-bs4/src/jquery.md.bootstrap.datetimepicker.js') }}"
+        type="text/javascript"></script>
 <script src="{{asset('assets/Sortable-master/Sortable.js')}}"></script>
-<script src="{{asset('assets/js/index1.js')}}"></script>
-<script src="{{asset('assets/js/custom.js')}}"></script>
-<script src="{{asset('assets/PersianDateTimePicker-bs4/src/jquery.md.bootstrap.datetimepicker.js')}}"></script>
 <script src="{{asset('dist/select2.min.js')}}"></script>
+<script src="{{asset('assets/js/custom.js')}}"></script>
 <script src="{{asset('assets/js/main.js')}}"></script>
 
 <script>

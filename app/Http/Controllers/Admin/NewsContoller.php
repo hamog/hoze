@@ -74,7 +74,6 @@ class NewsContoller extends Controller
 	public function store(NewsStoreRequest $request)
 	{
 		$path = $request->file("image")->store("images", "public");
-		$publishedAt = $request->published_date ?: Carbon::now()->format("YYYY-MM-DD HH:MM:SS");
 		$news = News::create([
 			"user_id" => auth()->user()->id,
 			"category_id" => $request->category_id,
@@ -84,7 +83,7 @@ class NewsContoller extends Controller
 			"body" => $request->body,
 			"resource_url" => $request->resource_url,
 			"slug" => $request->slug,
-			"published_at" => $publishedAt,
+			"published_at" => $request->input('published_at'),
 			"views_count" => 0,
 			"featured" => $request->featured,
 			"status" => $request->status,

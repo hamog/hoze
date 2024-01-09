@@ -35,7 +35,7 @@
                 <label class="font-weight-bold">انتخاب دسته بندی :</label><span class="text-danger">&starf;</span>
                 <select name="category_id" class="form-control" required>
                   @foreach ($categories as $category)
-                    <option value="{{ $category->id }}" @selected($category->id == $news->category_id)>{{ $category->name }}</option>  
+                    <option value="{{ $category->id }}" @selected($category->id == $news->category_id)>{{ $category->name }}</option>
                   @endforeach
                 </select>
               </div>
@@ -84,9 +84,9 @@
             <div class="col-12">
               <div class="form-group">
                 <label class="font-weight-bold">انتخاب برچسب :</label><span class="text-danger">&starf;</span>
-                <select class="form-control tags-selecet2" name="tag[]" multiple="multiple" required>
+                <select class="form-control select2-tags" name="tag[]" multiple="multiple" required>
                   @foreach ($tags as $tag)
-                    <option value="{{ $tag->name }}" {{ $news->checkSelectingTags($tag->id) }}>{{ $tag->name }}</option>
+                    <option value="{{ $tag->name }}" @selected($news->tags->contains($tag->id))>{{ $tag->name }}</option>
                   @endforeach
                 </select>
               </div>
@@ -114,14 +114,14 @@
 @section('scripts')
   <script>
     $('#published_at').MdPersianDateTimePicker({
-      targetDateSelector: '#published_date',        
+      targetDateSelector: '#published_date',
       targetTextSelector: '#published_at',
-      englishNumber: false,        
+      englishNumber: false,
       toDate:true,
-      enableTimePicker: false,        
+      enableTimePicker: false,
       dateFormat: 'yyyy-MM-dd',
-      textFormat: 'yyyy-MM-dd',        
+      textFormat: 'yyyy-MM-dd',
       groupId: 'rangeSelector1',
     });
-  </script> 
+  </script>
 @endsection

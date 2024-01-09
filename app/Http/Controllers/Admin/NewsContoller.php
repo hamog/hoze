@@ -129,6 +129,9 @@ class NewsContoller extends Controller
 	{
 		$news->tags()->detach();
 		$news->delete();
+
+    Storage::delete($news->image);
+
 		toastr()->success("خبر با موفقیت حذف شد.");
 		return redirect()->back();
 	}

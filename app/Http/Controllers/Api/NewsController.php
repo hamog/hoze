@@ -36,9 +36,9 @@ class NewsController extends Controller
 				return $query->where('category_id', $categoryId);
 			})
 			->when($tagId, function (Builder $query) use ($tagId) {
-				return $query->with(['tags' => function (Builder $query) use ($tagId) {
+				return $query->withWhereHas('tags' ,function (Builder $query) use ($tagId) {
 					return $query->where('tags.id', $tagId);
-				}]);
+				});
 			})
 			->with([
 				'user:id,name',

@@ -39,8 +39,10 @@ class AnnouncementController extends Controller
 			])
 			->where('status', 1)
 			->whereDate('published_at', '<=', Carbon::now())
-			->findOrFail($announcementId)
-		;
+			->findOrFail($announcementId);
+
+    $announcement->increment('views_count');
+
 		return response()->success('', compact('announcement'));
 	}
 

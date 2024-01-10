@@ -47,8 +47,10 @@ class ArticleController extends Controller
 				'views_count',
 			])
 			->where('status', 1)
-			->findOrFail($articleId)
-		;
+			->findOrFail($articleId);
+
+    $article->increment('views_count');
+
 		return response()->success('', compact('article'));
 	}
 

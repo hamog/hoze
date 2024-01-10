@@ -51,4 +51,20 @@ class ArticleController extends Controller
 		;
 		return response()->success('', compact('article'));
 	}
+
+  public function getRecent()
+  {
+    $articles = Article::query()
+      ->select(['id', 'user_id', 'category_id', 'title', 'image', 'views_count',])
+      ->where('status', 1)
+      ->with([
+        'user:id,name',
+        'category:id,name'
+      ])
+      ->orderBy('id', 'DESC')
+      ->latest('id')
+      ->get()
+    ;
+    return response()->success('', compact('articles'));
+  }
 }

@@ -13,8 +13,20 @@ class SliderController extends Controller
 			->select(['id', 'title', 'link', 'image', 'summary'])
 			->where('status', 1)
 			->orderBy('id', 'DESC')
-			->get()
-		;
+			->get();
+
 		return response()->success('', compact('sliders'));
 	}
+
+  public function getBanners()
+  {
+    $sliders = Slider::query()
+      ->select(['id', 'title', 'link', 'image', 'summary'])
+      ->where('status', 1)
+      ->orderBy('id', 'DESC')
+      ->take(3)
+      ->get();
+
+    return response()->success('', compact('sliders'));
+  }
 }

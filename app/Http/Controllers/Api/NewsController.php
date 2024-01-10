@@ -37,17 +37,15 @@ class NewsController extends Controller
 			})
 			->when($tagId, function (Builder $query) use ($tagId) {
 				return $query->with(['tags' => function (Builder $query) use ($tagId) {
-					return $query->where('tags', $tagId);
+					return $query->where('tags.id', $tagId);
 				}]);
 			})
 			->with([
 				'user:id,name',
-				'category:id,name',
-				'tags:id,name'
+				'category:id,name'
 			])
 			->orderBy('published_at', 'DESC')
-			->paginate()
-		;
+			->paginate();
 
 		return response()->success('', compact('news'));
 	}
@@ -77,8 +75,81 @@ class NewsController extends Controller
 				])
 				->where('status', 1)
 				->whereDate('published_at', '<=', Carbon::now())
-				->findOrFail($newsId)
-		;
+				->findOrFail($newsId);
+
+    $news->increment('views_count');
+
 		return response()->success('', compact('news'));
 	}
+
+
+  public function getMostVisited()
+  {
+    $news = News::query()
+      ->select([
+        'id',
+        'user_id',
+        'category_id',
+        'title',
+        'subtitle',
+        'image',
+        'published_at',
+        'views_count',
+        'featured'
+      ])
+      ->where('status', 1)
+      ->whereDate('published_at', '<=', Carbon::now())
+      ->latest('views_count')
+      ->take(5)
+      ->get();
+
+    return response()->success('', compact('news'));
+  }
+
+  public function getFeatured()
+  {
+    $news = News::query()
+      ->select([
+        'id',
+        'user_id',
+        'category_id',
+        'title',
+        'subtitle',
+        'image',
+        'published_at',
+        'views_count',
+        'featured'
+      ])
+      ->where('status', 1)
+      ->where('featured', 1)
+      ->whereDate('published_at', '<=', Carbon::now())
+      ->latest('published_at')
+      ->take(10)
+      ->get();
+
+    return response()->success('', compact('news'));
+  }
+
+  public function getRecent()
+  {
+    $news = News::query()
+      ->select([
+        'id',
+        'user_id',
+        'category_id',
+        'title',
+        'subtitle',
+        'image',
+        'published_at',
+        'views_count',
+        'featured'
+      ])
+      ->where('status', 1)
+      ->whereDate('published_at', '<=', Carbon::now())
+      ->latest('published_at')
+      ->take(10)
+      ->get();
+
+    return response()->success('', compact('news'));
+  }
 }

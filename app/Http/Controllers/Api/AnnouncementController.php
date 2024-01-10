@@ -11,6 +11,7 @@ class AnnouncementController extends Controller
   public function index()
 	{
 		$announcements = Announcement::query()
+      ->with('user:id,name')
 			->select(['id','user_id','title','image','published_at','views_count',])
 			->where('status', 1)
 			->whereDate('published_at', '<=', Carbon::now())
@@ -42,4 +43,19 @@ class AnnouncementController extends Controller
 		;
 		return response()->success('', compact('announcement'));
 	}
+
+  public function getRecent()
+  {
+    $announcements = Announcement::query()
+      ->select(['id','user_id','title','image','published_at','views_count',])
+      ->where('status', 1)
+      ->whereDate('published_at', '<=', Carbon::now())
+      ->orderBy('published_at', 'DESC')
+      ->with('user:id,name')
+      ->latest('id')
+      ->take(4)
+      ->get()
+    ;
+    return response()->success('', compact('announcements'));
+  }
 }

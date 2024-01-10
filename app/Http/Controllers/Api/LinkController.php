@@ -17,4 +17,16 @@ class LinkController extends Controller
 		;
 		return response()->success('', compact('links'));
 	}
+
+  public function getRecent()
+  {
+    $links = Link::query()
+      ->select(['id', 'title', 'subtitle', 'link', 'image'])
+      ->where('status', 1)
+      ->orderBy('id', 'DESC')
+      ->take(6)
+      ->get();
+
+    return response()->success('', compact('links'));
+  }
 }

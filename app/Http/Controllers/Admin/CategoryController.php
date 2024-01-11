@@ -52,10 +52,10 @@ class CategoryController extends Controller
 
 	public function destroy(Category $category)
 	{
-//		if ($category->news()->exists()) {
-//			toastr()->error("از این دسته بندی خبری ثبت شده است و نمی توان آن را حذف کرد.");
-//			return redirect()->back();
-//		}
+		if ($category->news()->exists()) {
+			toastr()->error("از این دسته بندی خبری ثبت شده است و نمی توان آن را حذف کرد.");
+			return redirect()->back();
+		}
 		$category->delete();
 		toastr()->success("دسته بندی با موفقیت حذف شد.");
 

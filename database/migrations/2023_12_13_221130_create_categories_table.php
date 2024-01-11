@@ -18,7 +18,6 @@ return new class extends Migration
 			$table->enum("type", ["news", "article"]);
 			$table->boolean("status");
 			$table->timestamps();
-			$table->unique(['type', 'name'], 'type_name_unique');
 		});
 	}
 

@@ -13,8 +13,8 @@ return new class extends Migration
 	{
 		Schema::create('news', function (Blueprint $table) {
 			$table->id();
-			$table->foreignId("user_id")->constrained("users")->cascadeOnDelete()->cascadeOnUpdate();
-			$table->foreignId("category_id")->constrained("categories")->noActionOnDelete()->cascadeOnUpdate();
+			$table->foreignId("user_id")->constrained("users")->cascadeOnDelete();
+			$table->foreignId("category_id")->constrained("categories")->cascadeOnDelete();
 			$table->string("title");
 			$table->string("subtitle");
 			$table->text("summary");

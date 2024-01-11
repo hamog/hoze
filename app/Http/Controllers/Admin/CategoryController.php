@@ -29,7 +29,11 @@ class CategoryController extends Controller
 				return $query->where("status", $status);
 			})
 			->orderByDesc("id")
-      ->withCount(['news', 'articles'])
+      ->withCount(['news' => function (Builder $query) {
+          $query->where('news.status', 1);
+      }, 'articles' => function (Builder $query) {
+        $query->where('news.status', 1);
+      }])
 			->get();
 
 		$categoriesCount = $categories->total();

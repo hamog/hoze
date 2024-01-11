@@ -8,13 +8,16 @@
           <div class="d-flex">
             <p class="card-title ml-2" style="font-weight: bolder;">لیست دسته بندی ها</p>
             <span class="fs-15">({{ $categoriesCount }})</span>
-          </div>          
+          </div>
           <button class="btn btn-teal" data-toggle="modal" data-target="#createCategoryModal">
             <span>ثبت دسته بندی جدید</span>
             <i class="fe fe-plus"></i>
-          </button>  
+          </button>
         </div>
         <div class="card-body">
+
+          @include('includes.errors')
+
           <div class="table-responsive">
             <div id="hr-table-wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
               <div class="row">

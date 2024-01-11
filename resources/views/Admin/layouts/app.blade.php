@@ -31,8 +31,6 @@
 
 						@include("Admin.layouts.includes.header")
 
-						@include('includes.errors')
-
 						@yield("content")
 
 					</div>

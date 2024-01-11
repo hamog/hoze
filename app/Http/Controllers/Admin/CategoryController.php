@@ -13,50 +13,50 @@ class CategoryController extends Controller
 {
 	public function index()
 	{
-		$name = request("name") !== "all" ?  request("name") : null;
-		$type = request("type") !== "all" ?  request("type") : null;
-		$status = request("status") !== "all" ? request("status") : null;
+		$name = request('name') !== 'all' ?  request('name') : null;
+		$type = request('type') !== 'all' ?  request('type') : null;
+		$status = request('status') !== 'all' ? request('status') : null;
 
 		$categories = Category::query()
-      ->select("id", "name", "slug", "type")
+      ->select('id', 'name', 'slug', 'type', 'status', 'created_at')
 			->when($name, function (Builder $query) use ($name) {
-				return $query->where("name", $name);
+				return $query->where('name', $name);
 			})
 			->when($type, function (Builder $query) use ($type) {
-				return $query->where("type", $type);
+				return $query->where('type', $type);
 			})
 			->when(isset($status), function (Builder $query) use ($status) {
-				return $query->where("status", $status);
+				return $query->where('status', $status);
 			})
-			->orderByDesc("id")
+			->orderByDesc('id')
 			->paginate();
 
 		$categoriesCount = $categories->total();
-		return view("Admin.category.index", compact("categories", "categoriesCount"));
+		return view('Admin.category.index', compact('categories', 'categoriesCount'));
 	}
 
 	public function store(CategoryStoreRequest $request)
 	{
 		Category::create($request->all());
-		toastr()->success("دسته بندی جدید با موفقیت ساخته شد.");
+		toastr()->success('دسته بندی جدید با موفقیت ساخته شد.');
 		return redirect()->back();
 	}
 
 	public function update(CategoryUpdateRequest $request, Category $category)
 	{
 		$category->update($request->all());
-		toastr()->success("دسته بندی با موفقیت ویرایش شد.");
+		toastr()->success('دسته بندی با موفقیت ویرایش شد.');
 		return redirect()->back();
 	}
 
 	public function destroy(Category $category)
 	{
 		if ($category->news()->exists()) {
-			toastr()->error("از این دسته بندی خبری ثبت شده است و نمی توان آن را حذف کرد.");
+			toastr()->error('از این دسته بندی خبری ثبت شده است و نمی توان آن را حذف کرد.');
 			return redirect()->back();
 		}
 		$category->delete();
-		toastr()->success("دسته بندی با موفقیت حذف شد.");
+		toastr()->success('دسته بندی با موفقیت حذف شد.');
 
 		return redirect()->back();
 	}

@@ -83,8 +83,8 @@
             </div>
             <div class="col-12">
               <div class="form-group">
-                <label class="font-weight-bold">انتخاب برچسب :</label><span class="text-danger">&starf;</span>
-                <select class="form-control select2-tags" name="tag[]" multiple="multiple" required>
+                <label class="font-weight-bold">انتخاب برچسب :</label>
+                <select class="form-control select2-tags" name="tag[]" multiple="multiple">
                   @foreach ($tags as $tag)
                     <option value="{{ $tag->name }}" @selected($news->tags->contains($tag->id))>{{ $tag->name }}</option>
                   @endforeach

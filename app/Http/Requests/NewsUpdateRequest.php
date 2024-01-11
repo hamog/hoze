@@ -31,7 +31,8 @@ class NewsUpdateRequest extends FormRequest
 			"body" => ["required", "string", "max:10000"],
 			"published_date" => ["required", "date"],
 			"image" => ["image", "mimes:png,jpg"],
-			"tag[]" => ["required", "array"],
+      "tag" => ["nullable", "array"],
+      "tag.*" => ["required", "string"]
 		];
 	}
 }

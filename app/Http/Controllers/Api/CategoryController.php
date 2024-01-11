@@ -20,7 +20,7 @@ class CategoryController extends Controller
       ->withCount(['news' => function (Builder $query) {
         $query->where('news.status', 1);
       }, 'articles' => function (Builder $query) {
-        $query->where('news.status', 1);
+        $query->where('articles.status', 1);
       }])
 			->get()
 		;

@@ -16,6 +16,11 @@ class Category extends Model
 	{
 		return $this->hasMany(News::class);
 	}
+
+  public function articles() :HasMany
+  {
+    return $this->hasMany(Article::class);
+  }
 	// ============= End Relations ============= \\
 
 	public function createdAt()

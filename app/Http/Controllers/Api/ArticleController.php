@@ -65,6 +65,7 @@ class ArticleController extends Controller
       ])
       ->orderBy('id', 'DESC')
       ->latest('id')
+      ->take(3)
       ->get()
     ;
     return response()->success('', compact('articles'));

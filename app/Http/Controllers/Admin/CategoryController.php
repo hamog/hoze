@@ -17,7 +17,8 @@ class CategoryController extends Controller
 		$type = request("type") !== "all" ?  request("type") : null;
 		$status = request("status") !== "all" ? request("status") : null;
 
-		$categories = Category::select("id", "name", "slug", "type", "status", "created_at")
+		$categories = Category::query()
+      ->select("id", "name", "slug", "type")
 			->when($name, function (Builder $query) use ($name) {
 				return $query->where("name", $name);
 			})
@@ -28,9 +29,8 @@ class CategoryController extends Controller
 				return $query->where("status", $status);
 			})
 			->orderByDesc("id")
-			->paginate(15)
-			->withQueryString()
-		;
+      ->withCount(['news', 'articles'])
+			->get();
 
 		$categoriesCount = $categories->total();
 		return view("Admin.category.index", compact("categories", "categoriesCount"));

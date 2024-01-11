@@ -29,12 +29,7 @@ class CategoryController extends Controller
 				return $query->where("status", $status);
 			})
 			->orderByDesc("id")
-      ->withCount(['news' => function (Builder $query) {
-          $query->where('news.status', 1);
-      }, 'articles' => function (Builder $query) {
-        $query->where('news.status', 1);
-      }])
-			->get();
+			->paginate();
 
 		$categoriesCount = $categories->total();
 		return view("Admin.category.index", compact("categories", "categoriesCount"));

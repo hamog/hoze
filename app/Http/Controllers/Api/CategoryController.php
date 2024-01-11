@@ -17,6 +17,11 @@ class CategoryController extends Controller
 			->when($type, function(Builder $query) use ($type) {
 				return $query->where('type', $type);
 			})
+      ->withCount(['news' => function (Builder $query) {
+        $query->where('news.status', 1);
+      }, 'articles' => function (Builder $query) {
+        $query->where('news.status', 1);
+      }])
 			->get()
 		;
 		return response()->success('', compact('categories'));

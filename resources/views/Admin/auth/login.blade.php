@@ -14,33 +14,33 @@
 		<link href="{{asset('assets/font/font.css')}}" rel="stylesheet"/>
 
 		<!--Favicon -->
-		<link rel="icon" href="assets/images/brand/favicon.ico" type="image/x-icon"/>
+		<link rel="icon" href="../../assets/images/brand/favicon.ico" type="image/x-icon"/>
 
 		<!-- Bootstrap css -->
-		<link href="assets/plugins/bootstrap/css/bootstrap.css" rel="stylesheet" />
+		<link href="../../assets/plugins/bootstrap/css/bootstrap.css" rel="stylesheet" />
 
-		<link href="assets/css-rtl/style.css" rel="stylesheet" />
-    {{-- <link rel="stylesheet" href="{{asset('assets/css-rtl/style.css')}}"> --}}
-		<link href="assets/css-rtl/dark.css" rel="stylesheet" />
-		<link href="assets/css-rtl/skin-modes.css" rel="stylesheet" />
-    <link rel="stylesheet" href="{{asset('assets/css/main.css')}}">
-    {{-- {{dd(asset('resources/assets/css/main.css'))}} --}}
+		<link href="../../assets/css-rtl/style.css" rel="stylesheet" />
+    {{-- <link rel="stylesheet" href="{{asset('../../assets/css-rtl/style.css')}}"> --}}
+		<link href="../../assets/css-rtl/dark.css" rel="stylesheet" />
+		<link href="../../assets/css-rtl/skin-modes.css" rel="stylesheet" />
+    <link rel="stylesheet" href="{{asset('../../assets/css/main.css')}}">
+    {{-- {{dd(asset('resources/../../assets/css/main.css'))}} --}}
 
 		<!-- Animate css -->
-		<link href="assets/css-rtl/animated.css" rel="stylesheet" />
+		<link href="../../assets/css-rtl/animated.css" rel="stylesheet" />
 
 		<!---Icons css-->
-		<link href="assets/css-rtl/icons.css" rel="stylesheet" />
+		<link href="../../assets/css-rtl/icons.css" rel="stylesheet" />
 
 		<!-- Select2 css -->
-		<link href="assets/plugins/select2/select2.min.css" rel="stylesheet" />
+		<link href="../../assets/plugins/select2/select2.min.css" rel="stylesheet" />
 
 		<!-- P-scroll bar css-->
-		<link href="assets/plugins/p-scrollbar/p-scrollbar.css" rel="stylesheet" />
+		<link href="../../assets/plugins/p-scrollbar/p-scrollbar.css" rel="stylesheet" />
 		{{-- <style>
 			@font-face {
 				font-family: Iran Sans;
-				src: url(assets/IRANSansWeb_Medium.ttf);
+				src: url(../../assets/IRANSansWeb_Medium.ttf);
 			}
 			html, body, * {
 				font-family: Iran Sans;
@@ -99,20 +99,20 @@
 		</div>
 
 		<!-- Jquery js-->
-		<script src="assets/plugins/jquery/jquery.min.js"></script>
+		<script src="../../assets/plugins/jquery/jquery.min.js"></script>
 
 		<!-- Bootstrap4 js-->
-		<script src="assets/plugins/bootstrap/popper.min.js"></script>
-		<script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+		<script src="../../assets/plugins/bootstrap/popper.min.js"></script>
+		<script src="../../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
 
 		<!-- Select2 js -->
-		<script src="assets/plugins/select2/select2.full.min.js"></script>
+		<script src="../../assets/plugins/select2/select2.full.min.js"></script>
 
 		<!-- P-scroll js-->
-		<script src="assets/plugins/p-scrollbar/p-scrollbar.js"></script>
+		<script src="../../assets/plugins/p-scrollbar/p-scrollbar.js"></script>
 
 		<!-- Custom js-->
-		<script src="assets/js/custom.js"></script>
+		<script src="../../assets/js/custom.js"></script>
 
 	</body>
 </html>

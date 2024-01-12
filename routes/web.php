@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AnnouncementController;
 use App\Http\Controllers\Admin\ArticleController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\LinkController;
 use App\Http\Controllers\Admin\MenuController;
 use App\Http\Controllers\Admin\NewsContoller;
@@ -11,7 +12,6 @@ use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\TagController;
 use App\Http\Controllers\Auth\AuthController;
-use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 Route::name('admin.')->prefix('/admin')->group(function() {
@@ -23,7 +23,7 @@ Route::name('admin.')->prefix('/admin')->group(function() {
 
 	Route::middleware('auth')->group(function() {
 		// Dashboard
-		Route::get('/dashboard', [HomeController::class, 'dashboard'])->name('dashboard');
+		Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
 		// Logout
 		Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 		// Category

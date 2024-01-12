@@ -12,21 +12,26 @@ class Category extends Model
 	protected $fillable = ["name", "slug", "type", "status"];
 
 	// =============== Relations =============== \\
-	public function news() :HasMany
+	public function news(): HasMany
 	{
 		return $this->hasMany(News::class);
 	}
 
-  public function articles() :HasMany
-  {
-    return $this->hasMany(Article::class);
-  }
+	public function articles(): HasMany
+	{
+		return $this->hasMany(Article::class);
+	}
 	// ============= End Relations ============= \\
 
 	public function createdAt()
 	{
 		return app("customFunction")->gregorianToShamsi($this->attributes["created_at"]);
 	}
+
+	public function getType()
+	{
+		$type = $this->attributes["type"];
+		if ($type == 'news') return 'خبر';
+		if ($type == 'article') return 'مقاله';
+	}
 }
-
-

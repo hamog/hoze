@@ -29,12 +29,9 @@ Route::name('api')->group(function() {
 
 	// News
 	Route::get('/news', [NewsController::class, 'index'])->name('news.index');
-	Route::get('/news/most-visited', [NewsController::class, 'getMostVisited'])
-    ->name('news.getMostVisited');
-  Route::get('/news/featured', [NewsController::class, 'getFeatured'])
-    ->name('news.featured');
-  Route::get('/news/recent', [NewsController::class, 'getRecent'])
-    ->name('news.recent');
+	Route::get('/news/most-visited', [NewsController::class, 'getMostVisited'])->name('news.getMostVisited');
+  Route::get('/news/featured', [NewsController::class, 'getFeatured'])->name('news.featured');
+  Route::get('/news/recent', [NewsController::class, 'getRecent'])->name('news.recent');
   Route::get('/news/{id}', [NewsController::class, 'show'])->name('news.show');
 
 	// Announcement

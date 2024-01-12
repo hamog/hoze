@@ -3,7 +3,7 @@
   <td class="text-center">{{ $category->name }}</td>
   <td class="text-center">{{ $category->id }}</td>
   <td class="text-center">{{ $category->slug }}</td>
-  <td class="text-center">{{ $category->type }}</td>
+  <td class="text-center">{{ $category->getType() }}</td>
   <td class="text-center">{{ $category->createdAt() }}</td>
   <td class="text-center">
     @if ($category->status == 1)
@@ -14,7 +14,7 @@
   </td>
   <td class="text-center">
     <div class="d-flex justify-content-center">
-      <button class="action-btns1 bg-transparent" data-toggle="modal" data-target="#editCategoryModal-{{$category->id}}">
+      <button class="action-btns1 bg-transparent" data-toggle="modal" data-target="#edit-category-{{$category->id}}">
         <i class="feather feather-edit text-warning"></i>
       </button>
       <button onclick="confirmDelete('delete-{{ $category->id }}')" class="action-btns1 bg-transparent ">

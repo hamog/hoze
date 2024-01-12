@@ -2,18 +2,23 @@
 @section('content')
   <div class="col-12 mt-5">
     <div class="col-xl-12 col-md-12 col-lg-12">
+
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <x-breadcrumb :items="$breadcrumbItems" />
+        <x-register-button title="category" label="دسته بندی" type="btn" />
+      </div>
+
       @include('Admin.category.includes.filter')
+
       <div class="card">
+
         <div class="card-header border-0 justify-content-between">
           <div class="d-flex">
             <p class="card-title ml-2" style="font-weight: bolder;">لیست دسته بندی ها</p>
             <span class="fs-15">({{ $categoriesCount }})</span>
           </div>
-          <button class="btn btn-teal" data-toggle="modal" data-target="#createCategoryModal">
-            <span>ثبت دسته بندی جدید</span>
-            <i class="fe fe-plus"></i>
-          </button>
         </div>
+        
         <div class="card-body">
 
           @include('includes.errors')

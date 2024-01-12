@@ -6,21 +6,20 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\CategoryStoreRequest;
 use App\Http\Requests\CategoryUpdateRequest;
 use App\Models\Category;
-use App\Models\News;
 use Illuminate\Database\Eloquent\Builder;
 
 class CategoryController extends Controller
 {
 	public function index()
 	{
-		$name = request('name') !== 'all' ?  request('name') : null;
+		$name = request('name');
 		$type = request('type') !== 'all' ?  request('type') : null;
 		$status = request('status') !== 'all' ? request('status') : null;
 
 		$categories = Category::query()
-      ->select('id', 'name', 'slug', 'type', 'status', 'created_at')
+      ->select(['id', 'name', 'slug', 'type', 'status', 'created_at'])
 			->when($name, function (Builder $query) use ($name) {
-				return $query->where('name', $name);
+				return $query->where('name', 'like', "%$name%");
 			})
 			->when($type, function (Builder $query) use ($type) {
 				return $query->where('type', $type);
@@ -31,7 +30,12 @@ class CategoryController extends Controller
 			->orderByDesc('id')
 			->paginate();
 
+		$breadcrumbItems = [
+			['title' => 'دسته بندی ها', 'link' => ''],
+		];
+
 		$categoriesCount = $categories->total();
+
 		return view('Admin.category.index', compact('categories', 'categoriesCount'));
 	}
 
@@ -39,6 +43,7 @@ class CategoryController extends Controller
 	{
 		Category::create($request->all());
 		toastr()->success('دسته بندی جدید با موفقیت ساخته شد.');
+		
 		return redirect()->back();
 	}
 

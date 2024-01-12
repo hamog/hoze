@@ -9,16 +9,11 @@
     <div class="row">
       <form action="{{ route("admin.category.index") }}" class="col-12">
         <div class="row">
-          <div class="col-4 form-group">
+          <div class="col-12 col-xl-4 col-lg-4 form-group">
             <label class="font-weight-bold">عنوان دسته بندی :</label>
-            <select name="name" class="form-control select2">
-              <option value="all">همه</option>
-              @foreach ($categories as $category)
-                <option value="{{ $category->name }}" @selected(request("name") == $category->name)>{{ $category->name }}</option>
-              @endforeach
-            </select>
+            <input type="text" name="name" class="form-control">
           </div>
-          <div class="col-4 form-group">
+          <div class="col-12 col-xl-4 col-lg-4 form-group">
             <label class="font-weight-bold">نوع دسته بندی :</label>
             <select name="type" class="form-control">
               <option value="all" @selected(request("type") == "all")>همه</option>
@@ -26,7 +21,7 @@
               <option value="article" @selected(request("type") == "article")>مقاله</option>
             </select>
           </div>
-          <div class="col-4 form-group mb-5">
+          <div class="col-12 col-xl-4 col-lg-4 form-group mb-5">
             <label class="font-weight-bold">وضعیت :</label>
             <select name="status" class="form-control">
               <option value="all">همه</option>

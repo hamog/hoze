@@ -1,4 +1,4 @@
-<div class="modal fade" id="createCategoryModal" style="" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade mt-5" id="create-category" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document" style="min-width: 100vw; position: relative; bottom: 15vh">
     <div class="modal-content">
       <div class="modal-header">
@@ -11,13 +11,13 @@
         <form action="{{route("admin.category.store")}}" method="POST">
           @csrf
           <div class="row">
-            <div class="col-6">
+            <div class="col-12 col-xl-6 col-lg-6">
               <div class="form-group">
                 <label class="font-weight-bold">عنوان :</label><span class="text-danger">&starf;</span>
                 <input type="text" name="name" class="form-control" required>
               </div>
             </div>
-            <div class="col-6">
+            <div class="col-12 col-xl-6 col-lg-6">
               <div class="form-group">
                 <label class="font-weight-bold">نوع دسته بندی :</label><span class="text-danger">&starf;</span>
                 <select name="type" class="form-control" required>
@@ -27,13 +27,13 @@
                 </select>
               </div>
             </div>
-            <div class="col-6">
+            <div class="col-12 col-xl-6 col-lg-6">
               <div class="form-group">
                 <label class="font-weight-bold">اسلاگ :</label><span class="text-danger">&starf;</span>
                 <input type="text" name="slug" class="form-control" required>
               </div>
             </div>
-            <div class="col-6">
+            <div class="col-12 col-xl-6 col-lg-6">
               <div class="form-group">
                 <label class="font-weight-bold">انتخاب وضعیت :</label><span class="text-danger">&starf;</span>
                 <select name="status" class="form-control" required>

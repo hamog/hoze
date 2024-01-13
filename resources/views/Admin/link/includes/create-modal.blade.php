@@ -29,6 +29,13 @@
                 <input type="text" name="link" class="form-control" required>
               </div>
             </div>
+            <div class="col-12">
+              <div class="form-group">
+                  <label for="description" class="font-weight-bold">توضیحات</label>
+                  <textarea class="form-control" name="description" id="description"
+                            rows="3">{!! old('description') !!}</textarea>
+              </div>
+            </div>
             <div class="col-6">
               <div class="form-group">
                 <label class="font-weight-bold">انتخاب عکس:</label><span class="text-danger">&starf;</span>

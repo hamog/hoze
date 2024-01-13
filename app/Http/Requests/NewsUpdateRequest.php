@@ -28,7 +28,7 @@ class NewsUpdateRequest extends FormRequest
 			"slug" => ["required"],
 			"resource_url" => ["required", "string", "max:255"],
 			"summary" => ["required", "string", "max:1000"],
-			"body" => ["required", "string", "max:10000"],
+			"body" => ["required", "string", "max:64000"],
 			"published_date" => ["required", "date"],
 			"image" => ["image", "mimes:png,jpg"],
       "tag" => ["nullable", "array"],

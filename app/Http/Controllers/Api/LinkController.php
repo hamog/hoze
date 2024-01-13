@@ -10,7 +10,7 @@ class LinkController extends Controller
 	public function index()
 	{
 		$links = Link::query()
-			->select(['id', 'title', 'subtitle', 'link', 'image'])
+			->select(['id', 'title', 'subtitle', 'link', 'image', 'description'])
 			->where('status', 1)
 			->orderBy('id', 'DESC')
 			->get()
@@ -21,7 +21,7 @@ class LinkController extends Controller
   public function getRecent()
   {
     $links = Link::query()
-      ->select(['id', 'title', 'subtitle', 'link', 'image'])
+      ->select(['id', 'title', 'subtitle', 'link', 'image', 'description'])
       ->where('status', 1)
       ->orderBy('id', 'DESC')
       ->take(6)

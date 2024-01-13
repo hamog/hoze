@@ -49,6 +49,7 @@ class LinkController extends Controller
 			"title" => $request->title,
 			"subtitle" => $request->subtitle,
 			"status" => $request->status,
+      "description" => $request->description,
 		]);
 		toastr()->success("پیوند جدید با موفقیت ساخته شد.");
 		return redirect()->route("admin.link.index");
@@ -61,6 +62,7 @@ class LinkController extends Controller
 			"title" => $request->title,
 			"subtitle" => $request->subtitle,
 			"status" => $request->status,
+			"description" => $request->description,
 		];
 		if ($request->hasFile("image")) {
 			Storage::delete($link->image);

@@ -33,6 +33,13 @@
               </div>
               <div class="col-12">
                 <div class="form-group">
+                  <label for="description" class="font-weight-bold">توضیحات</label>
+                  <textarea class="form-control" name="description" id="description"
+                            rows="3">{!! old('description', $link->description) !!}</textarea>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="form-group">
                   <label class="font-weight-bold">انتخاب عکس:</label>
                   <input type="file" class="form-control" name="image">
                 </div>

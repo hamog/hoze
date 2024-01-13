@@ -28,7 +28,7 @@ class NewsStoreRequest extends FormRequest
 			"slug" => ["required"],
 			"resource_url" => ["required", "string", "max:255"],
 			"summary" => ["required", "string", "max:1000"],
-			"body" => ["required", "string", "max:10000"],
+			"body" => ["required", "string", "max:64000"],
 			"published_at" => ["date"],
 			"image" => ["required", "image", "mimes:png,jpg"],
 			"tag" => ["nullable", "array"],

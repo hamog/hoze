@@ -128,7 +128,7 @@ class NewsContoller extends Controller
       $news->tags()->detach();
     }
 		toastr()->success("خبر با موفقیت ویرایش شد.");
-		return redirect()->back()->withInput();
+		return redirect()->route('admin.news.index')->withInput();
 	}
 
 	public function destroy(News $news)
@@ -139,6 +139,6 @@ class NewsContoller extends Controller
     Storage::delete($news->image);
 
 		toastr()->success("خبر با موفقیت حذف شد.");
-		return redirect()->back();
+		return redirect()->route('admin.news.index');
 	}
 }

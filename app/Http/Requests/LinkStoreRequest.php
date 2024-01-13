@@ -26,7 +26,8 @@ class LinkStoreRequest extends FormRequest
 			'subtitle' => ['required', 'string', 'max:100'],
 			'link' => ['required', 'string', 'url', 'max:199'],
 			'image' => ['required', 'image', 'mimes:png,jpg'],
-			'status' => ['required', 'in:0,1']
+			'status' => ['required', 'in:0,1'],
+			'description' => ['nullable', 'string', 'max:10000'],
 		];
 	}
 }

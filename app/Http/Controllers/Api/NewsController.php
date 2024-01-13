@@ -45,7 +45,7 @@ class NewsController extends Controller
 				'user:id,name',
 				'category:id,name'
 			])
-			->orderBy('published_at', 'DESC')
+      ->latest('published_at')
 			->paginate();
 
 		return response()->success('', compact('news'));

@@ -17,6 +17,7 @@ return new class extends Migration
 			$table->string("link");
 			$table->string("title");
 			$table->string("subtitle");
+			$table->text('description')->nullable();
 			$table->boolean("status");
 			$table->timestamps();
 		});

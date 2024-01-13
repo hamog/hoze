@@ -3,10 +3,10 @@
   <div class="col-12 mt-5">
     <div class="col-xl-12 col-md-12 col-lg-12">
 
-{{--      <div class="d-flex justify-content-between align-items-center mb-4">--}}
+      <div class="d-flex justify-content-between align-items-center mb-4">
 {{--        <x-breadcrumb :items="$breadcrumbItems" />--}}
-{{--        <x-register-button title="category" label="دسته بندی" type="btn" />--}}
-{{--      </div>--}}
+        <x-register-button title="category" label="دسته بندی" type="btn" />
+      </div>
 
       @include('Admin.category.includes.filter')
 

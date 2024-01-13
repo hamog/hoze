@@ -16,6 +16,7 @@
 <link href="{{asset('assets/plugins/jQuery-countdowntimer/jQuery.countdownTimer.css')}}" rel="stylesheet" />
 <link href="{{asset('assets/css-rtl/style-rtl.css')}}" rel="stylesheet" />
 <link href="{{asset('dist/select2.min.css')}}" rel="stylesheet"/>
+<link href="{{asset('assets/plugins/summernote/summernote-bs4.min.css')}}" rel="stylesheet"/>
 <!-- PersianDateTimePicker css -->
 <link rel="stylesheet"
       href="{{ asset('assets\PersianDateTimePicker-bs4/src/jquery.md.bootstrap.datetimepicker.style.css') }}"/>

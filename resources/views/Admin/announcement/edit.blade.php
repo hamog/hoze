@@ -55,7 +55,7 @@
             <div class="col-12">
               <div class="form-group">
                 <label class="font-weight-bold">متن :</label><span class="text-danger">&starf;</span>
-                <textarea name="body" class="form-control" rows="10" required>{!! old("body") ?: $announcement->body !!}</textarea>
+                <textarea name="body" class="summernote" rows="10" required>{!! old("body") ?: $announcement->body !!}</textarea>
               </div>
             </div>
           </div>
@@ -69,14 +69,14 @@
 @section('scripts')
   <script>
     $('#published_at').MdPersianDateTimePicker({
-      targetDateSelector: '#published_date',        
+      targetDateSelector: '#published_date',
       targetTextSelector: '#published_at',
-      englishNumber: false,        
+      englishNumber: false,
       toDate:true,
-      enableTimePicker: false,        
+      enableTimePicker: false,
       dateFormat: 'yyyy-MM-dd',
-      textFormat: 'yyyy-MM-dd',        
+      textFormat: 'yyyy-MM-dd',
       groupId: 'rangeSelector1',
     });
-  </script> 
+  </script>
 @endsection

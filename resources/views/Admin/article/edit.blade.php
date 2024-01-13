@@ -29,7 +29,7 @@
                 <label class="font-weight-bold">انتخاب دسته بندی :</label><span class="text-danger">&starf;</span>
                 <select name="category_id" class="form-control" required>
                   @foreach ($categories as $category)
-                    <option value="{{ $category->id }}" @selected($category->id == $article->category_id)>{{ $category->name }}</option>  
+                    <option value="{{ $category->id }}" @selected($category->id == $article->category_id)>{{ $category->name }}</option>
                   @endforeach
                 </select>
               </div>
@@ -64,7 +64,7 @@
             <div class="col-12">
               <div class="form-group">
                 <label class="font-weight-bold">متن :</label><span class="text-danger">&starf;</span>
-                <textarea name="body" class="form-control" rows="10" required>{{ old("title") ?: $article->body }}</textarea>
+                <textarea name="body" class="summernote" rows="10" required>{{ old("title") ?: $article->body }}</textarea>
               </div>
             </div>
           </div>
@@ -78,14 +78,14 @@
 @section('scripts')
   <script>
     $('#published_at').MdPersianDateTimePicker({
-      targetDateSelector: '#published_date',        
+      targetDateSelector: '#published_date',
       targetTextSelector: '#published_at',
-      englishNumber: false,        
+      englishNumber: false,
       toDate:true,
-      enableTimePicker: false,        
+      enableTimePicker: false,
       dateFormat: 'yyyy-MM-dd',
-      textFormat: 'yyyy-MM-dd',        
+      textFormat: 'yyyy-MM-dd',
       groupId: 'rangeSelector1',
     });
-  </script> 
+  </script>
 @endsection

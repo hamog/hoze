@@ -112,7 +112,7 @@
             <div class="col-12">
               <div class="form-group">
                 <label class="font-weight-bold">متن خبر :</label><span class="text-danger">&starf;</span>
-                <textarea name="body" class="form-control" rows="10" required></textarea>
+                <textarea name="body" class="summernote" rows="10" required></textarea>
               </div>
             </div>
           </div>

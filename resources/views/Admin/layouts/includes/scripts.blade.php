@@ -14,6 +14,7 @@
         type="text/javascript"></script>
 <script src="{{asset('assets/Sortable-master/Sortable.js')}}"></script>
 <script src="{{asset('dist/select2.min.js')}}"></script>
+<script src="{{asset('assets/plugins/summernote/summernote-bs4.min.js')}}"></script>
 <script src="{{asset('assets/js/custom.js')}}"></script>
 <script src="{{asset('assets/js/main.js')}}"></script>
 
@@ -35,4 +36,12 @@
       }
     });
   }
+
+  $(function(e) {
+    $('.summernote').summernote({
+      placeholder: "متن را اینجا وارد کنید...",
+      tabsize: 3,
+      height: 300
+    });
+  });
 </script>

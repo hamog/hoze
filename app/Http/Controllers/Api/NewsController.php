@@ -25,7 +25,8 @@ class NewsController extends Controller
 				'image',
 				'published_at',
 				'views_count',
-				'featured'
+				'featured',
+        'resource_url'
 			])
 			->where('status', 1)
 			->whereDate('published_at', '<=', Carbon::now())
@@ -72,6 +73,7 @@ class NewsController extends Controller
 				'published_at',
 				'views_count',
 				'featured',
+        'resource_url'
 				])
 				->where('status', 1)
 				->whereDate('published_at', '<=', Carbon::now())
@@ -95,7 +97,8 @@ class NewsController extends Controller
         'image',
         'published_at',
         'views_count',
-        'featured'
+        'featured',
+        'resource_url'
       ])
       ->where('status', 1)
       ->whereDate('published_at', '<=', Carbon::now())
@@ -122,7 +125,8 @@ class NewsController extends Controller
         'image',
         'published_at',
         'views_count',
-        'featured'
+        'featured',
+        'resource_url'
       ])
       ->where('status', 1)
       ->where('featured', 1)
@@ -150,7 +154,8 @@ class NewsController extends Controller
         'image',
         'published_at',
         'views_count',
-        'featured'
+        'featured',
+        'resource_url'
       ])
       ->where('status', 1)
       ->whereDate('published_at', '<=', Carbon::now())

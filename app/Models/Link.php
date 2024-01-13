@@ -14,7 +14,8 @@ class Link extends Model
 		"link",
 		"title",
 		"subtitle",
-		"status"
+		"status",
+        'description'
 	];
 
 	public function shamsiCreatedAt()

@@ -26,6 +26,7 @@
                       <th class="text-center border-top">تصویر</th>
                       <th class="text-center border-top">شناسه</th>
                       <th class="text-center border-top">عنوان</th>
+                      <th class="text-center border-top">توضیحات</th>
                       <th class="text-center border-top">تاریخ ثبت</th>
                       <th class="text-center border-top">وضعیت</th>
                       <th class="text-center border-top">عملیات</th>
@@ -36,7 +37,7 @@
                     @forelse ($links as $link)
                       @include('Admin.link.includes.table')
                       @php $counter++; @endphp
-                      @empty <div class="alert alert-danger">هیچ داده ای یافت نشد</div>                          
+                      @empty <div class="alert alert-danger">هیچ داده ای یافت نشد</div>
                     @endforelse
                   </tbody>
                 </table>

@@ -68,6 +68,7 @@ class LinkController extends Controller
 			Storage::delete($link->image);
 			$inputs["image"] = $request->file("image")->store("images", "public");
 		}
+
 		$link->update($inputs);
 		toastr()->success("پیوند با موفقیت ویرایش شد.");
 		return redirect()->back()->withInput();

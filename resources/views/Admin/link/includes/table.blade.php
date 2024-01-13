@@ -5,6 +5,7 @@
   </td>
   <td class="text-center">{{ $link->id }}</td>
   <td class="text-center">{{ Str::limit($link->title, 20) }}</td>
+  <td class="text-center">{{ Str::limit($link->description, 20) }}</td>
   <td class="text-center">{{ $link->shamsiCreatedAt() }}</td>
   <td class="text-center">
     @if ($link->status == 1)

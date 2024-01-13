@@ -151,6 +151,7 @@ class NewsController extends Controller
         'category_id',
         'title',
         'subtitle',
+        'summary',
         'image',
         'published_at',
         'views_count',

@@ -18,7 +18,7 @@ class LinkController extends Controller
 		$startedDate = request("started_date");
 		$finishedDate = request("finished_date");
 
-		$links = Link::select("id", "status", "title", 'subtitle', "image", "created_at", "link")
+		$links = Link::select("id", "status", "title", 'subtitle', "image", "created_at", "link", 'description')
 			->when($title, function (Builder $query) use ($title) {
 				return $query->where("title", "like", "%{$title}%");
 			})

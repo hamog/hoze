@@ -1,15 +1,88 @@
 @extends('Admin.layouts.app')
 @section("title") تنظیمات @endsection
 @section('content')
+
+
   <div class="col-12 mt-5">
     <div class="col-xl-12 col-md-12 col-lg-12">
+      @include('includes.errors')
       <div class="card">
         <div class="card-header border-0 d-flex justify-content-between">
           <p class="card-title ml-2" style="font-weight: bolder;">ویرایش تنظیمات - {{$group}}</p>
-					<a href="{{route('admin.setting.index')}}" class="btn btn-outline-warning ">بازگشت</a>
+
+          <div class="float-left">
+            <a href="{{route('admin.settings.index')}}" class="btn btn-outline-warning ">بازگشت</a>
+
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#create-setting">
+              ثبت کلید تنظیمات جدید
+            </button>
+          </div>
+
+          <!-- Modal -->
+          <div class="modal fade" id="create-setting" tabindex="-1" role="dialog" aria-labelledby="modelTitleId"
+               aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">ثبت کلید تنظیمات جدید</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                    <form action="{{ route('admin.settings.store') }}" method="post" class="form.save">
+                      @csrf
+
+                      <div class="row">
+                        <div class="col">
+                          <div class="form-group">
+                              <label for="name" class="control-label">نام کلید (به انگلیسی) <span class="text-danger">&starf;</span></label>
+                              <input type="text" class="form-control" name="name" id="name" placeholder="نام کلید (به انگلیسی) را اینجا وارد کنید" value="{{ old('name') }}" required>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col">
+                          <div class="form-group">
+                              <label for="label" class="control-label">لیبل (به فارسی) <span class="text-danger">&starf;</span></label>
+                              <input type="text" class="form-control" name="label" id="label" placeholder="لیبل (به فارسی) را اینجا وارد کنید" value="{{ old('label') }}" required>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col">
+                          <div class="form-group">
+                              <label for="type" class="control-label">نوع تنظیمات</label>
+                              <span class="text-danger">&starf;</span>
+                              <select class="form-control" name="type" id="type" required>
+                                  <option class="text-muted">-- نوع تنظیمات مورد نظر را انتخاب کنید --</option>
+                                  <option value="text" @selected(old('type') == 'text')>متن کوتاه</option>
+                                  <option value="textarea" @selected(old('type') == 'textarea')>متن بلند</option>
+                                  <option value="image" @selected(old('type') == 'image')>تصویر</option>
+                              </select>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="text-center">
+                        <input type="hidden" name="group" value="{{ $groupName }}">
+                          <button class="btn btn-primary" type="submit">ثبت  و ذخیره</button>
+                      </div>
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-danger">بستن</button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="card-body">
-          <form action="{{ route("admin.setting.update") }}" method="POST" enctype="multipart/form-data">
+          <form action="{{ route("admin.settings.update") }}" method="POST" enctype="multipart/form-data">
 						@csrf
 						@method("PATCH")
 						<div class="row">
@@ -19,9 +92,9 @@
 										<div class="col-6">
 											<div class="form-group">
 												<label class="form-label" for="{{ $setting->name }}">{{ $setting->label }}</label>
-												<input 
-													id="{{ $setting->name }}"	
-													type="{{ $type }}" 
+												<input
+													id="{{ $setting->name }}"
+													type="{{ $type }}"
 													name="{{ $setting->name }}"
 													class="form-control"
 													value="{{ $setting->value }}"
@@ -36,11 +109,11 @@
 										<div class="col-6">
 											<div class="form-group">
 												<label class="form-label" for="{{ $setting->name }}">{{ $setting->label }}</label>
-												<input 
-													id="{{ $setting->name }}" 
-													value="{{ $setting->value }}" 
+												<input
+													id="{{ $setting->name }}"
+													value="{{ $setting->value }}"
 													type="file"
-													name="{{ $setting->name }}" 
+													name="{{ $setting->name }}"
 													class="form-control"
 												/>
 											</div>
@@ -51,10 +124,10 @@
 											</button>
 											<br>
 											<figure class="figure">
-												<img 
+												<img
 													src="{{ Storage::url($setting->value) }}"
-													class="img-thumbnail" 
-													width="50" height="50" 
+													class="img-thumbnail"
+													width="50" height="50"
 													alt="{{ $setting->label }}"
 												/>
 											</figure>
@@ -72,13 +145,13 @@
 									@endforeach
 								@endif
 							@endforeach
-						</div>	
+						</div>
 						<button class="btn btn-warning" type="submit">بروزرسانی</button>
 					</form>
 					@foreach ($settingTypes as $type => $settings)
 						@if ($type == "image")
 							@foreach ($settings as $setting)
-								<form action="{{ route('admin.setting.destroy.file', $setting) }}" id="delete-image-{{$setting->id}}" method="POST" style="display: none;">
+								<form action="{{ route('admin.settings.destroy.file', $setting) }}" id="delete-image-{{$setting->id}}" method="POST" style="display: none;">
 									@csrf
 									@method("DELETE")
 								</form>

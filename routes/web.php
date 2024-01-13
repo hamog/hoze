@@ -50,15 +50,16 @@ Route::name('admin.')->prefix('/admin')->group(function() {
 			Route::delete('/{menuItem}', 'destroy')->name('destroy');
 		});
 		// Profile
-		Route::name('profile.')->controller(ProfileController::class)->group(function() {
+		Route::name('profile.')->prefix('/profile')->controller(ProfileController::class)->group(function() {
 			Route::get('/{userId}', 'edit')->name('edit');
 			Route::patch('/{userId}', 'update')->name('update');
 			Route::put('/{userId}/change-password', 'changePassword')->name('changePassword');
 		});
 		// Setting
-		Route::name('setting.')->prefix('setting')->controller(SettingController::class)->group(function() {
+		Route::name('settings.')->prefix('/settings')->controller(SettingController::class)->group(function() {
 			Route::get('/', 'index')->name('index');
 			Route::get('/{group}', 'edit')->name('edit');
+			Route::post('/store', 'store')->name('store');
 			Route::patch('/', 'update')->name('update');
 			Route::delete('/{setting}/file', 'destroyFile')->name('destroy.file');
 		});

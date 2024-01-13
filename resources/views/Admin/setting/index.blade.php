@@ -10,7 +10,7 @@
 								<i class="fe fe-info fs-50"></i>
 								<h3 class="font-weight-bold mt-4">تنظیمات عمومی</h3>
 								<p class="mt-3 mb-5">تنظمیت سایت مانند لوگو و تلفن و ... در این بخش قرار می گیرد.</p>
-								<a class="btn btn-white mx-1 btn-pill" href="{{ route('admin.setting.edit', ['general']) }}">ویرایش</a>
+								<a class="btn btn-white mx-1 btn-pill" href="{{ route('admin.settings.edit', ['general']) }}">ویرایش</a>
 							</div>
 						</div>
 					</div>
@@ -20,7 +20,7 @@
 								<i class="fe fe-info fs-50"></i>
 								<h3 class="font-weight-bold mt-4"> شبکه های اجتماعی</h3>
 								<p class="mt-3 mb-5">تنظمیت سایت مانند لوگو و تلفن و ... در این بخش قرار می گیرد.</p>
-								<a class="btn btn-white mx-1 btn-pill" href="{{ route('admin.setting.edit', ['social']) }}">ویرایش</a>
+								<a class="btn btn-white mx-1 btn-pill" href="{{ route('admin.settings.edit', ['social']) }}">ویرایش</a>
 							</div>
 						</div>
 					</div>

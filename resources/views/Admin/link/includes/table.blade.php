@@ -1,7 +1,7 @@
 <tr>
   <td class="text-center">{{ $counter }}</td>
   <td class="text-center">
-    {{-- <img width="50" height="40" src="{{ $link->getImage() }}"/> --}}
+     <img width="50" height="40" src="{{ $link->getImage() }}"/>
   </td>
   <td class="text-center">{{ $link->id }}</td>
   <td class="text-center">{{ Str::limit($link->title, 20) }}</td>

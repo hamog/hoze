@@ -12,7 +12,7 @@
           <div class="row mb-1">
             <div class="col-12" style="height: 250px">
               <figure class="h-100 w-100">
-                <img class="h-100 w-100 rounded" src="{{ Storage::url($link->image) }}">
+                <img class="h-100 w-100 rounded" src="{{ $link->getImage() }}">
               </figure>
             </div>
           </div>

@@ -23,6 +23,6 @@ class Link extends Model
 	}
 	public function getImage()
 	{
-		return Storage::url($this->attributes['image']);
+		return Storage::disk('public')->url($this->attributes['image']);
 	}
 }

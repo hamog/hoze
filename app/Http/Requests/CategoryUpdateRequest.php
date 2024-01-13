@@ -24,10 +24,7 @@ class CategoryUpdateRequest extends FormRequest
 	public function rules(): array
 	{
 		return [
-			'name' => ['required', 'min:4', 'max:191', 'string',
-        Rule::unique('categories')->where(fn (Builder $query) => $query->where('type', 'news'))
-        ->ignore($this->route('category')->id)
-      ],
+			'name' => ['required', 'min:4', 'max:191', 'string'],
 			'type' => ['required', 'in:news,article'],
 			'slug' => ['required', 'min:4', 'max:255', 'string'],
 			'status' => ['required', 'in:0,1'],

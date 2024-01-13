@@ -28,8 +28,7 @@ class CategoryStoreRequest extends FormRequest
         "required",
         "min:4",
         "max:191",
-        "string",
-        Rule::unique('categories')->where(fn (Builder $query) => $query->where('type', 'news'))
+        "string"
       ],
 			"type" => ["required", 'in:news,article'],
 			"slug" => ["required", "min:4", "max:255", "string"],

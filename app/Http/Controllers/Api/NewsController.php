@@ -100,6 +100,10 @@ class NewsController extends Controller
       ->where('status', 1)
       ->whereDate('published_at', '<=', Carbon::now())
       ->latest('views_count')
+      ->with([
+        'user:id,name',
+        'category:id,name'
+      ])
       ->take(5)
       ->get();
 
@@ -124,6 +128,10 @@ class NewsController extends Controller
       ->where('featured', 1)
       ->whereDate('published_at', '<=', Carbon::now())
       ->latest('published_at')
+      ->with([
+        'user:id,name',
+        'category:id,name'
+      ])
       ->take(10)
       ->get();
 
@@ -147,6 +155,10 @@ class NewsController extends Controller
       ->where('status', 1)
       ->whereDate('published_at', '<=', Carbon::now())
       ->latest('published_at')
+      ->with([
+        'user:id,name',
+        'category:id,name'
+      ])
       ->take(10)
       ->get();
 

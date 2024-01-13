@@ -89,7 +89,9 @@ class NewsContoller extends Controller
 			"status" => $request->status,
 			"image" => $path
 		]);
-		$news->attachTags($request->tag);
+    if ($request->tag) {
+      $news->attachTags($request->tag);
+    }
 		toastr()->success("خبر جدید با موفقیت ساخته شد.");
 		return redirect()->route("admin.news.index");
 	}
@@ -120,7 +122,11 @@ class NewsContoller extends Controller
 			$inputs["image"] = $request->file("image")->store("images", "public");
 		}
 		$news->update($inputs);
-		$news->attachTags($request->tag, true);
+    if ($request->tag) {
+      $news->attachTags($request->tag, true);
+    } elseif (!$request->tag && $news->tags()->exists()) {
+      $news->tags()->detach();
+    }
 		toastr()->success("خبر با موفقیت ویرایش شد.");
 		return redirect()->back()->withInput();
 	}

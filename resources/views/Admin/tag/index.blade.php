@@ -41,7 +41,7 @@
                             <button onclick="confirmDelete('delete-tag-{{ $tag->id }}')" class="action-btns1 bg-transparent">
                               <i class="feather feather-trash-2 text-danger"></i>
                             </button>
-                            <form action="{{ route('admin.tag.destroy', $tag) }}" method="POST" id="delete-tag-{{ $tag->id }}" style="display: none">
+                            <form action="{{ route('admin.tags.destroy', $tag) }}" method="POST" id="delete-tag-{{ $tag->id }}" style="display: none">
                               @csrf
                               @method('DELETE')
                             </form>
@@ -71,7 +71,7 @@
           </button>
         </div>
         <div class="modal-body">
-          <form action="{{route("admin.tag.store")}}" method="POST">
+          <form action="{{route("admin.tags.store")}}" method="POST">
             @csrf
             <div class="row">
               <div class="col-12">
@@ -99,7 +99,7 @@
             </button>
           </div>
           <div class="modal-body">
-            <form action="{{route("admin.tag.update", $tag)}}" method="POST">
+            <form action="{{route("admin.tags.update", $tag)}}" method="POST">
               @csrf
               @method("PATCH")
               <div class="row">

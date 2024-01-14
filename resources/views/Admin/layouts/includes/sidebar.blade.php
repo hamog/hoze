@@ -50,7 +50,7 @@
         </a>
       </li>
       <li class="slide">
-        <a class="side-menu__item"  href="{{route('admin.tag.index')}}">
+        <a class="side-menu__item"  href="{{route('admin.tags.index')}}">
           <span class="side-menu__label">برچسب ها</span>
         </a>
       </li>

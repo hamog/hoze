@@ -31,7 +31,7 @@ Route::name('admin.')->prefix('/admin')->group(function() {
 		// News
 		Route::resource('/news', NewsContoller::class);
 		// Tags
-		Route::apiResource('/tag', TagController::class)->except('show');
+		Route::resource('/tags', TagController::class)->except(['create', 'edit', 'show']);
 		// Links
 		Route::resource('/link', LinkController::class);
 		// Announcements

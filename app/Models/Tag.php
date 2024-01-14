@@ -14,7 +14,7 @@ class Tag extends Model
 	// =============== Relations =============== \\
 	public function news(): BelongsToMany
 	{
-		return $this->belongsToMany(Tag::class);
+		return $this->belongsToMany(Tag::class, 'news_tag');
 	}
 	// ============= End Relations ============= \\
 
@@ -24,6 +24,6 @@ class Tag extends Model
   }
 	public function shamsiCreatedAt()
 	{
-    return app("customFunction")->gregorianToShamsi($this->attributes["created_at"]); 
+    return app("customFunction")->gregorianToShamsi($this->attributes["created_at"]);
 	}
 }

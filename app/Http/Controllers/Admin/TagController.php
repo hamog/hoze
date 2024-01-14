@@ -28,10 +28,14 @@ class TagController extends Controller
     toastr()->success("برچسب با موفقیت ویرایش شد.");
     return redirect()->route("admin.tag.index");
   }
-  
-  public function destory(Tag $tag)
+
+  public function destroy(Tag $tag)
   {
-    $tag->delete();
+    if ($tag->delete()) {
+      if ($tag->news()->exists()) {
+        $tag->news()->delete();
+      }
+    }
     toastr()->success("برچسب با موفقیت حذف شد.");
     return redirect()->back();
   }

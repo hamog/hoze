@@ -19,6 +19,7 @@ class ProfileController extends Controller
 
 	public function update(ProfileUpdateRequest $request, User $user)
 	{
+    $user = auth()->user();
 		$user->update([
 			"name" => $request->input("name"),
 			"phone_number" => $request->input("phone_number"),

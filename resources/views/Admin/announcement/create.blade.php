@@ -14,16 +14,15 @@
             <div class="col-3">
               <div class="form-group">
                 <label class="font-weight-bold">عنوان :</label><span class="text-danger">&starf;</span>
-                <input type="text" name="title" class="form-control" required>
+                <input type="text" name="title" class="form-control" value="{{ old('title') }}" required>
               </div>
             </div>
             <div class="col-2">
               <div class="form-group">
                 <label class="font-weight-bold">وضعیت :</label><span class="text-danger">&starf;</span>
                 <select name="status" class="form-control" required>
-                  <option value="none">انتخاب</option>
-                  <option value="1">فعال</option>
-                  <option value="0">غیر فعال</option>
+                  <option value="1" @selected(old('status') == '1')>فعال</option>
+                  <option value="0" @selected(old('status') == '0')>غیر فعال</option>
                 </select>
               </div>
             </div>
@@ -43,16 +42,16 @@
             <div class="col-3">
               <div class="form-group">
                 <label class="font-weight-bold">اسلاگ:</label><span class="text-danger">&starf;</span>
-                <input type="text" class="form-control" name="slug" required>
+                <input type="text" class="form-control" name="slug" value="{{ old('slug') }}" required>
               </div>
             </div>
             <div class="col-12 form-group">
               <label class="font-weight-bold">متن کوتاه :</label><span class="text-danger">&starf;</span>
-              <textarea name="summary" class="form-control" rows="3" required></textarea>
+              <textarea name="summary" class="form-control" rows="3" required>{{ old('summary') }}</textarea>
             </div>
             <div class="col-12 form-group">
               <label class="font-weight-bold">متن اطلاعیه :</label><span class="text-danger">&starf;</span>
-              <textarea name="body" class="summernote" rows="10" required></textarea>
+              <textarea name="body" class="summernote" rows="10" required>{!! old('body') !!}</textarea>
             </div>
           </div>
           <button class="btn btn-info">ثبت</button>

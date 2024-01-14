@@ -8,13 +8,13 @@
             <div class="card-body">
               <div class="row">
                 <div class="col-7">
-                  <div class="mt-0 text-right"> 
+                  <div class="mt-0 text-right">
                     <span class="font-weight-semibold">تعداد اخبار</span>
                     <h3 class="mb-0 mt-1 text-success">{{$newsCount}}</h3>
                   </div>
                 </div>
                 <div class="col-5">
-                  <div class="icon1 bg-success-transparent my-auto  float-left"> 
+                  <div class="icon1 bg-success-transparent my-auto  float-left">
                     <i class="fe fe-file-text"></i>
                   </div>
                 </div>
@@ -34,7 +34,7 @@
                   </div>
                 </div>
                 <div class="col-5">
-                  <div class="icon1 bg-primary-transparent my-auto  float-left">      
+                  <div class="icon1 bg-primary-transparent my-auto  float-left">
                     <i class="fe fe-file-text"></i>
                   </div>
                 </div>
@@ -72,7 +72,7 @@
                   <h3 class="mb-0 mt-1 text-danger">{{$linksCount}}</h3> </div>
                 </div>
                 <div class="col-5">
-                  <div class="icon1 bg-danger-transparent my-auto  float-left"> 
+                  <div class="icon1 bg-danger-transparent my-auto  float-left">
                     <i class="fe fe-file-text"></i>
                   </div>
                 </div>
@@ -113,7 +113,7 @@
                           <td class="text-center"> {{ $category->id }} </td>
                           <td class="text-center"> {{ $category->name }} </td>
                           <td class="text-center"> {{ $category->getType() }} </td>
-                          <td class="text-center"> 
+                          <td class="text-center">
                             @if ($category->status == '0')
                               <span class="text-danger">غیر فعال</span>
                             @else
@@ -138,7 +138,7 @@
               <p class="card-title font-weight-bolder ml-2">برچسب ها</p>
             </div>
             <div>
-              <a href="{{route("admin.tag.index")}}" class="btn btn-outline-primary">مشاهده همه</a>
+              <a href="{{route("admin.tags.index")}}" class="btn btn-outline-primary">مشاهده همه</a>
             </div>
           </div>
           <div class="card-body">
@@ -187,7 +187,7 @@
                   <table class="table table-vcenter text-nowrap table-bordered border-bottom" id="hr-table">
                     <thead>
                       <tr>
-                        <th class="text-center border-top">شناسه</th> 
+                        <th class="text-center border-top">شناسه</th>
                         <th class="text-center border-top">ناشر</th>
                         <th class="text-center border-top">دسته بندی</th>
                         <th class="text-center border-top">ویژه</th>

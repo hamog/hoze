@@ -45,7 +45,7 @@ class ArticleController extends Controller
 			->paginate(15)
 			->withQueryString()
 		;
-		
+
 		$articlesCount = $articles->total();
 		$categories = Category::select("id", "name")->where("type", "article")->get();
 		$users = User::select("id", "name", "phone_number")->get();
@@ -55,7 +55,7 @@ class ArticleController extends Controller
 
 	public function show(Article $article)
 	{
-		return view("admin.article.show", compact("article"));
+		return view("Admin.article.show", compact("article"));
 	}
 
 	public function create()
@@ -71,7 +71,7 @@ class ArticleController extends Controller
 			"user_id" => auth()->user()->id,
 			"category_id" => $request->category_id,
 			"title" => $request->title,
-			"subtitle" => $request->subtitle,
+			"summary" => $request->summary,
 			"body" => $request->body,
 			"slug" => $request->slug,
 			"resource" => $request->resource,

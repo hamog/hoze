@@ -16,6 +16,9 @@
           </button>
         </div>
         <div class="card-body">
+
+          @include('includes.errors')
+
           <div class="table-responsive">
             <div id="hr-table-wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
               <div class="row">

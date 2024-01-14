@@ -125,7 +125,7 @@
 											<br>
 											<figure class="figure">
 												<img
-													src="{{ Storage::url($setting->value) }}"
+													src="{{ $setting->value }}"
 													class="img-thumbnail"
 													width="50" height="50"
 													alt="{{ $setting->label }}"

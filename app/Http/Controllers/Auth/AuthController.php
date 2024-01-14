@@ -17,7 +17,7 @@ class AuthController extends Controller
 
 	public function login(LoginRequest $request) :RedirectResponse
 	{
-		if (Auth::attempt($request->except("_token"))) {
+		if (Auth::attempt($request->only(['phone_number', 'password']))) {
 			$request->session()->regenerate();
 			return redirect()->intended('admin/dashboard');
 		}

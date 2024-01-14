@@ -69,8 +69,8 @@
 										<form class="card-body pt-3" id="login" action="{{route("admin.login")}}" name="login" method="POST">
                       @csrf
 											<div class="form-group">
-												<label class="form-label">نام کاربری</label>
-												<input name="name" class="form-control" placeholder="نام کاربری" type="text">
+												<label class="form-label">شماره موبایل</label>
+												<input name="phone_number" class="form-control" placeholder="شماره موبایل" type="text">
 											</div>
 											<div class="form-group">
 												<label class="form-label">کلمه عبور</label>

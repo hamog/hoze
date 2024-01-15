@@ -26,7 +26,7 @@ class Setting extends Model
   public function value(): Attribute
   {
     return Attribute::make(
-      get: fn(string $value) => $this->attributes['type'] == 'image' ? Storage::disk('public')->url($value) : $value,
+      get: fn(string $value) => ($this->attributes['type'] == 'image' && $value) ? Storage::disk('public')->url($value) : $value,
     );
   }
 }

@@ -30,7 +30,7 @@ class SettingController extends Controller
       'label' => $request->label,
       'name' => $request->name,
       'type' => $request->type,
-      'value' => '',
+      'value' => null,
     ]);
 
     toastr()->success('تنظیمات با موفقیت بروزرسانی شد.');
@@ -70,7 +70,7 @@ class SettingController extends Controller
 			toastr()->warning('تایپ فایل انتخاب شده برابر با عکس نیست.');
 		}else{
 			Storage::disk('public')->delete($setting->value);
-      $setting->value = '';
+      $setting->value = null;
       $setting->save();
 
 			toastr()->success('فایل با موفقیت حذف شد.');

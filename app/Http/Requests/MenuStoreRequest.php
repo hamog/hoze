@@ -23,7 +23,11 @@ class MenuStoreRequest extends FormRequest
 	public function rules(): array
 	{
 		return [
-			'title' => ['required', 'string', 'max:199', 'unique:menu_items,title'],
+			'title' => [
+        'required',
+        'string',
+        'max:191'
+      ],
 			'linkable_type' => ['required', 'not_in:none'],
 			'linkable_id' => ["required_if:link,null", 'not_in:none'],
 			'link' => ["required_if:linkable_id,null", 'string', 'max:300'],

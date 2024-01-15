@@ -48,15 +48,13 @@
             <div class="col form-group">
               <label class="font-weight-bold">باز شدن در صفحه جدید :</label><span class="text-danger">&starf;</span>
               <select name="new_tab" class="form-control">
-                <option value="none" class="custom-menu">انتخاب</option>
-                <option value="1" class="custom-menu">باز شود</option>
                 <option value="0" class="custom-menu">باز نشود</option>
+                <option value="1" class="custom-menu">باز شود</option>
               </select>
             </div>
             <div class="col form-group">
               <label class="font-weight-bold">وضعیت :</label><span class="text-danger">&starf;</span>
               <select name="status" class="form-control">
-                <option value="none" class="custom-menu">انتخاب</option>
                 <option value="1" class="custom-menu">فعال</option>
                 <option value="0" class="custom-menu">غیر فعال</option>
               </select>

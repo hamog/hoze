@@ -23,7 +23,7 @@ class MenuUpdateRequest extends FormRequest
 	public function rules(): array
 	{
 		return [
-			'title' => ['required', 'string', 'max:199', 'unique:menu_items,title'],
+			'title' => ['required', 'string', 'max:199'],
 			'linkable_type' => ['required'],
 			'linkable_id' => ['required_if:link,null', 'not_in:none'],
 			'link' => ['required_if:linkable_id,null', 'string', 'max:300'],

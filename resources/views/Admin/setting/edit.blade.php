@@ -119,18 +119,20 @@
 											</div>
 										</div>
 										<div class="col-6">
-											<button type="button" class="btn btn-danger btn-sm" onclick="confirmDelete('delete-image-{{ $setting->id }}')">
-												<i class="fa fa-times"></i>
-											</button>
-											<br>
-											<figure class="figure">
-												<img
-													src="{{ $setting->value }}"
-													class="img-thumbnail"
-													width="50" height="50"
-													alt="{{ $setting->label }}"
-												/>
-											</figure>
+                      @if($setting->value)
+                        <button type="button" class="btn btn-danger btn-sm" onclick="confirmDelete('delete-image-{{ $setting->id }}')">
+                          <i class="fa fa-times"></i>
+                        </button>
+                        <br>
+                        <figure class="figure">
+                          <img
+                            src="{{ $setting->value }}"
+                            class="img-thumbnail"
+                            width="50" height="50"
+                            alt="{{ $setting->label }}"
+                          />
+                        </figure>
+                      @endif
 										</div>
 									@endforeach
 								@endif

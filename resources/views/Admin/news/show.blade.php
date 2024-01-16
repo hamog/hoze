@@ -87,7 +87,7 @@
           <div class="row mt-3">
             <div class="col px-0">
               <span class="fs-20 font-weight-bolder">متن :</span>
-              <p class="fs-18 mt-2 mr-1">{{ $news->body }}</p>
+              <p class="fs-18 mt-2 mr-1">{!! $news->body !!}</p>
             </div>
           </div>
         </div>

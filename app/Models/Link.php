@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
@@ -17,6 +18,17 @@ class Link extends Model
 		"status",
         'description'
 	];
+
+  protected $appends = [
+    'image_url'
+  ];
+
+  protected function imageUrl(): Attribute
+  {
+    return Attribute::make(
+      get: fn () => $this->getImage()
+    );
+  }
 
 	public function shamsiCreatedAt()
 	{

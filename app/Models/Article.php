@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -24,6 +25,17 @@ class Article extends Model
 		"status",
 	];
 
+  protected $appends = [
+    'image_url'
+  ];
+
+  protected function imageUrl(): Attribute
+  {
+    return Attribute::make(
+      get: fn () => $this->getImage()
+    );
+  }
+
 	// =============== Relations =============== \\
 	public function user(): BelongsTo
 	{
@@ -41,7 +53,7 @@ class Article extends Model
 	}
 	public function getImage()
 	{
-		return Storage::url($this->attributes['image']);
+		return Storage::disk('public')->url($this->attributes['image']);
 	}
 	public function deleteImage()
 	{

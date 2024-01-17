@@ -12,7 +12,7 @@ class AnnouncementController extends Controller
 	{
 		$announcements = Announcement::query()
       ->with('user:id,name')
-			->select(['id','user_id','title','image','published_at','views_count',])
+			->select(['id','user_id','title','image','published_at','views_count','summary'])
 			->where('status', 1)
 			->whereDate('published_at', '<=', Carbon::now())
 			->orderBy('published_at', 'DESC')
@@ -49,7 +49,7 @@ class AnnouncementController extends Controller
   public function getRecent()
   {
     $announcements = Announcement::query()
-      ->select(['id','user_id','title','image','published_at','views_count',])
+      ->select(['id','user_id','title','image','published_at','views_count','summary'])
       ->where('status', 1)
       ->whereDate('published_at', '<=', Carbon::now())
       ->orderBy('published_at', 'DESC')

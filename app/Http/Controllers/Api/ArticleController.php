@@ -12,7 +12,7 @@ class ArticleController extends Controller
 	{
 		$categoryId = request('category_id');
 		$articles = Article::query()
-			->select(['id', 'user_id', 'category_id', 'title', 'image', 'views_count', 'summary'])
+			->select(['id', 'user_id', 'category_id', 'title', 'image', 'views_count', 'summary', 'created_at'])
 			->where('status', 1)
 			->when($categoryId, function (Builder $query) use ($categoryId) {
 				return $query->where('category_id', $categoryId);
@@ -45,6 +45,7 @@ class ArticleController extends Controller
 				'slug',
 				'resource',
 				'views_count',
+        'created_at'
 			])
 			->where('status', 1)
 			->findOrFail($articleId);
@@ -57,7 +58,7 @@ class ArticleController extends Controller
   public function getRecent()
   {
     $articles = Article::query()
-      ->select(['id', 'user_id', 'category_id', 'title', 'image', 'views_count', 'summary'])
+      ->select(['id', 'user_id', 'category_id', 'title', 'image', 'views_count', 'summary', 'created_at'])
       ->where('status', 1)
       ->with([
         'user:id,name',

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Carbon\Carbon;
+use DateTimeInterface;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -34,6 +35,11 @@ class Article extends Model
     return Attribute::make(
       get: fn () => $this->getImage()
     );
+  }
+
+  protected function serializeDate(DateTimeInterface $date): string
+  {
+    return $date->format('Y-m-d H:i:s');
   }
 
 	// =============== Relations =============== \\
